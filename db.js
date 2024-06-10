@@ -2,25 +2,27 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const mongoURL = process.env.DB_URL;
 
-mongoose.connect(mongoURL,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true
-})
+mongoose.connect(mongoURL, {
+  // Remove useNewUrlParser option
+  // useNewUrlParser: true,
+  // Remove useUnifiedTopology option
+  // useUnifiedTopology: true,
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+});
 
 const db = mongoose.connection;
 
-db.on('connected', () =>{
-    console.log('connected to mongodb');
-})
+db.on('connected', () => {
+  console.log('connected to mongodb');
+});
 
+db.on('error', (err) => {
+  console.log('connected', err);
+});
 
-db.on('error', (err) =>{
-    console.log('connected',err);
-})
-
-
-db.on('disconnected', () =>{
-    console.log('disconnected');
-})
+db.on('disconnected', () => {
+  console.log('disconnected');
+});
 
 module.exports = db;
