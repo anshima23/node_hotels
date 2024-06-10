@@ -3,6 +3,7 @@ const db = require('./db');  // Ensure db.js is in the same directory or adjust 
 const bodyParser = require('body-parser');
 const Person = require('./models/person');
 const MenuItem = require('./models/MenuItem');
+require('dotenv').config();
 
 const app = express();  // Initialize the app before using it
 
