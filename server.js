@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('./db');  // Ensure db.js is in the same directory or adjust the path accordingly
 const bodyParser = require('body-parser');
-const Person = require('./models/person');
+const Person = require('./models/Person');
 const MenuItem = require('./models/MenuItem');
 require('dotenv').config();
 
